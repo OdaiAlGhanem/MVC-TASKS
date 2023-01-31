@@ -16,8 +16,13 @@ namespace _31_1_2023_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Default", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Odai",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Odai", action = "FullName", id = UrlParameter.Optional }
+                );
         }
     }
 }

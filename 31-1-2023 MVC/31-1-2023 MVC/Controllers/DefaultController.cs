@@ -9,30 +9,23 @@ namespace _31_1_2023_MVC.Controllers
     public class DefaultController : Controller
     {
         // GET: Default
-        public ActionResult Default()
+        public ActionResult Index()
         {
-            byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Files/Juice.jpg"));
-            return File(fileBytes, "~/Files/jpg", "~/Files/juice.jpg");
-        }
+            return Content(
 
-        public ActionResult AboutUs()
-        {
-            string html = "<a href='" + Url.Action("Default", "Default") + "'>" +
-                            "<img src='../Files/juice.jpg' height='200' width='200' alt='Image to download' />" +
-                          "</a>" +
-                          "<br />" +
-                          "This is the About Us page.";
-            return Content(html);
+                    "\r\n<a href=\"img.jpg\" download>" +
+                    "\r\n  <img src=\"img.jpg\" alt=\"W3Schools\" " +
+                    "width=\"104\" height=\"142\">\r\n</a>");
         }
-
-        public ActionResult ContactUs()
+        public string About()
         {
-            string html = "<a href='" + Url.Action("Default", "Default") + "'>" +
-                            "<img src='~/image/juice.jpg' height='200' width='200' alt='Image to download' />" +
-                          "</a>" +
-                          "<br />" +
-                          "This is the Contact Us page.";
-            return Content(html);
+            return "welcome coach";
+        }
+        public ActionResult Contact()
+        {
+            return Content(
+                "\r\n<h2>HTML Forms</h2>\r\n\r\n<form action=\"/action_page.php\">\r\n  <label for=\"fname\">First name:</label><br>\r\n  <input type=\"text\" id=\"fname\" name=\"fname\" value=\"John\"><br>\r\n  <label for=\"lname\">Last name:</label><br>\r\n  <input type=\"text\" id=\"lname\" name=\"lname\" value=\"Doe\"><br><br>\r\n  <input type=\"submit\" value=\"Submit\">\r\n</form> \r\n\r\n<p>If you click the \"Submit\" button, the form-data will be sent to a page called \"/action_page.php\".</p>\r\n"
+                );
         }
     }
 }
