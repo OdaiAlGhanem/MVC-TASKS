@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+@using (Html.BeginForm())
+{
+     @Html.AntiForgeryToken()
+
+    <div>
+        @Html.Label("User Name")
+        @Html.TextBox("txtEmplpyeeName", "", new { @class = "form-control" })
+
+    </div>
+    <div>
+        @Html.Label("Password")
+        @Html.Password("Password", "", new { @class = "form-control" })
+    </div>
+    <div>
+        <h1>Description</h1>
+        @Html.TextArea("Address", " ", new { @class = "form-control", id = "IdAdd" })
+    </div>
+    <div>
+        @Html.CheckBox("Music")
+
+    </div>
+    <div>
+        @Html.CheckBox("Sports", true)
+
+    </div>
+    <div>
+
+        @Html.RadioButton("Gender", "Male", false, new { id = "male" })
+    </div>
+
+
+    <div>
+        @Html.RadioButton("Gender", "Female", true, new { id = "female" })
+
+    </div>
+
+    @*@{
+
+            IEnumerable<string> strList = new List<string> { "MBA", "MCA", "MSC", "MCOM" };
+
+        }*@
+
+    @*@Html.DropDownList("ddlCourse", new SelectList(strList, strList.FirstOrDefault())*@
+
+    <div>
+        @Html.ListBox("Select Skills", new List<SelectListItem>
+    {
+
+    new SelectListItem{ Text="ASP.NET Core",Value="1" },
+
+    new SelectListItem{ Text="MVC",Value="2" },
+
+    new SelectListItem{ Text="C#",Value="3" },
+
+    new SelectListItem{ Text="Azure",Value="4" }
+
+    })
+
+
+    </div>
+
+    @*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+
+        {
+
+            // Please write your source code here.
+
+        }*@
+
+}
